@@ -166,20 +166,7 @@ header {
     justify-content: center;
 }
 
-@media (max-width: 768px){
-    .filme{
-        display: flex;
-        flex-direction: column;
-    }
-    .imgEsquerda>img {
-        width: 100%;
-        border-radius: 9px;
-    }
-    .textCitacao>h4 {
-        font-size: 2rem;
-    }
-}
-footer{
+footer {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -188,9 +175,76 @@ footer{
     height: 60px;
     background-color: black;
 }
-footer > p {
+
+footer>p {
     color: white;
 }
+
+@media (max-width: 768px) {
+    .filme {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .imgEsquerda>img {
+        width: 100%;
+        border-radius: 9px;
+    }
+
+    .textCitacao>h4 {
+        font-size: 2rem;
+    }
+
+    .contViews {
+        display: flex;
+        gap: 10px;
+    }
+
+    .contCardBlog {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        margin-top: 30px;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .cardBlog {
+        width: 100%;
+        /* height: auto; */
+        /* padding: 20px; */
+        border-radius: 9px;
+        background: white;
+        border: 0.5px solid black;
+    }
+
+    .titulo>h5 {
+        font-size: 1rem;
+    }
+    .tituloCard>h6 {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 99%;
+        display: inline-block;
+        margin: 0;
+        font-size: 0.8rem;
+    }
+    .linksHeader>a {
+        text-decoration: none;
+        transition: all 0.8s;
+        font-size: 60%;
+    }
+    .imgHeader>img {
+        width: 90%;
+    }
+}
+
+
+
+
+
 
 
 

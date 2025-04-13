@@ -118,8 +118,8 @@
                     <div class="cardHero">
                         <div class="imgCard"><img src="img/message.svg"alt=""></div>
                         <div class="textCard">
-                            <div class="tituloCard"> <h6>${comentarios.body}</h6> </div>
-                            <div class="userTextCard">${comentarios.user.username}</div>
+                            <div class="tituloCard"> <h6>"${comentarios.body}"</h6> </div>
+                            <div class="userTextCard"><p>${comentarios.user.username}</p></div>
                         </div>
                     </div>
                     
@@ -142,10 +142,10 @@
                     contCardBlog.innerHTML += `
                 <div class="cardBlog">
                     <div class="paragrafo"></div>
-                        <div class="titulo">${posts.title}</div>
+                        <div class="titulo"><h5>${posts.title}</h5></div>
                         <div class="contViews">
-                            <div class="view"><i class="bi bi-eye-fill"></i> ${posts.views}</div>
-                            <div class="like"><i class="bi bi-star-fill"></i>${posts.reactions.likes} </div>
+                            <div class="view"><i class="bi bi-eye-fill"></i><p> ${posts.views}</p></div>
+                            <div class="like"><i class="bi bi-star-fill"></i><p>${posts.reactions.likes}</p> </div>
                         </div>
                     </div>
                 `

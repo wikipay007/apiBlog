@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <link rel="stylesheet" href="img/fontes.css">
+    <link href="https://cdn.jsdelivr.net/npm/lucide@0.226.0/dist/lucide.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="headercont">
+            <div class="imgHeader"><img src="img/logo.png" alt="logo"></div>
+            <div class="linksHeader">
+                <a href="#">Inicio</a>
+                <a href="#">Sobre nós</a>
+                <a href="#">Junte-se</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="contHero">
+        <div class="hero">
+            <div class="textHero">
+                <div class="tituloHero">
+                    <h1>O seu blog de filmes</h1>
+                </div>
+                <div class="pHero">Acompanhe os cometários sobre os filmes da semana</div>
+            </div>
+            <div class="carouselHero">
+                <div class="bannerImg">
+                    <div class="textBanner">Anora(2024)</div>
+                    <div id="carouselExampleIndicators" class="carousel slide">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                                class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                                aria-label="Slide 2"></button>
+
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="img/Anora - 2024 1.jpg" alt="" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="img/Anora - 2024 2.jpg" class="d-block w-100" alt="...">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+
+                </div>
+                <div class="contCardBlog" id="contCardBlog">
+                </div>
+
+            </div>
+            <section class="citacao" id="citacao">
+                <div class="contCitacao">
+                    <div class="textCitacaoAction">Pense sobre...</div>
+                    <div class="textCitacao">
+                        <h4>"Seu coração é do tamanho de um oceano. Vá encontrar-se em suas profundezas ocultas."</h4>
+                    </div>
+                </div>
+            </section>
+            <section class="filme">
+                <div class="esquerda">
+                    <div class="imgEsquerda"><img src="img/Perfect Days - 2023.jpeg" alt=""></div>
+                </div>
+                <div class="direita">
+                    <div class="textDireita">
+                        <h3>Perfect Days</h3>
+                    </div>
+                    <div class="coments">
+                        <div class="contCardComents" id="contCardComents"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+
+    <footer>
+        <p>O site de alguns filmes - 2025</p>
+    </footer>
+
+
+</body>
+
+<script>
+    let contCardHero = document.getElementById("contCardsHero")
+    let contCardBlog = document.getElementById("contCardBlog")
+    let contCardComents = document.getElementById("contCardComents")
+    let btnEnviar = document.getElementById("btnEnviar")
+    function puxaDadosApi() {
+        fetch("https://dummyjson.com/comments")
+            .then((response) => {
+                return response.json();
+            }).then((dados) => {
+                const coments = dados.comments
+                coments.slice(0, 4).forEach(comentarios => {
+                    contCardComents.innerHTML += `
+                    <div class="cardHero">
+                        <div class="imgCard"><img src="img/message.svg"alt=""></div>
+                        <div class="textCard">
+                            <div class="tituloCard"> <h6>${comentarios.body}</h6> </div>
+                            <div class="userTextCard">${comentarios.user.username}</div>
+                        </div>
+                    </div>
+                    
+                    
+                    
+                    `
+                });
+
+            })
+    }
+    function postsAPI() {
+        fetch("https://dummyjson.com/posts")
+            .then((response) => {
+                return response.json();
+            }).then((dado) => {
+                const post = dado.posts
+                console.log(post)
+                console.log(post[0].body)
+                post.slice(0, 6).forEach(posts => {
+                    contCardBlog.innerHTML += `
+                <div class="cardBlog">
+                    <div class="paragrafo"></div>
+                        <div class="titulo">${posts.title}</div>
+                        <div class="contViews">
+                            <div class="view"><i class="bi bi-eye-fill"></i> ${posts.views}</div>
+                            <div class="like"><i class="bi bi-star-fill"></i>${posts.reactions.likes} </div>
+                        </div>
+                    </div>
+                `
+
+
+                })
+            }).catch((error) => {
+                console.error("Erro", error)
+            })
+
+    }
+
+
+    window.onload = function () {
+        puxaDadosApi()
+        postsAPI()
+    }
+
+</script>
+
+</html>

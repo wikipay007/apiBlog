@@ -1,0 +1,23 @@
+ dados.slice(0, 5)
+                    .forEach(dadinhos => {
+                        contCardHero.innerHTML += `
+                <div class="cardHero" id="cardHero" >
+            <h6 class="tituloCard">${dadinhos.title}</h6>
+            </div>
+            `
+                    });
+
+
+                     dados.slice(0, 5)
+                    .forEach(dadinhos => {
+                        contCardHero.innerHTML += `
+                <div class="cardHero" id="cardHero" >
+            <h6 class="tituloCard">${dadinhos.title}</h6>
+            </div>
+            `
+                    });
+
+
+
+
+                     
